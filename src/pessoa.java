@@ -1,7 +1,7 @@
-public abstract class pessoa {
-    public String nome;
-    public int matricula;
-    public pessoa(String nome, int matricula){
+public abstract class Pessoa {
+    private String nome;
+    private int matricula;
+    public Pessoa(String nome, int matricula){
         this.nome=nome;
         this.matricula=matricula;
     }  

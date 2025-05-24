@@ -1,3 +1,3 @@
-public class sistema {
+public class Sistema {
     
 }

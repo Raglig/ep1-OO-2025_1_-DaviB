@@ -1,4 +1,4 @@
-public interface tipoAvaliacao {
-    float calcular(float[] notas);
+public interface TipoAvaliacao {
+    float calcularMedia(float[] notas);
     
 }

@@ -1,6 +1,6 @@
-public class professor extends pessoa {
+public class Professor extends Pessoa {
 
-    public professor(String nome, int matricula) {
+    public Professor(String nome, int matricula) {
         super(nome, matricula);
         
     }
