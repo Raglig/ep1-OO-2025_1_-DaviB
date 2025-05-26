@@ -1,8 +1,11 @@
+package dominio;
+import pessoas.Aluno;
+
 public class Matricula {
     private Aluno aluno;
     private Turma turma;
     private boolean trancada;
-    private float[] notas; // suposição de 5 componentes
+    private float[] notas; 
     private int presencas;
 
     public Matricula(Aluno aluno, Turma turma) {
@@ -40,8 +43,19 @@ public class Matricula {
         return notas;
     }
 
+    public void setNota(int index, float valor) {
+        if (index < 0 || index >= notas.length) {
+            throw new IndexOutOfBoundsException("Índice de nota inválido (0 a 4).");
+        }
+        this.notas[index] = valor;
+    }
+
     public void setPresencas(int presencas) {
         this.presencas = presencas;
+    }
+
+    public void adicionarPresenca() {
+        this.presencas++;
     }
 
     public int getPresencas() {
@@ -61,5 +75,15 @@ public class Matricula {
         float media = calcularMediaFinal();
         float freq = calcularFrequencia(totalAulas);
         return media >= 5.0f && freq >= 75.0f;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Aluno: %s | Média: %.2f | Frequência: %.1f%% | Aprovado: %s",
+                aluno.getNome(),
+                calcularMediaFinal(),
+                calcularFrequencia(60), // número de aulas padrão (ajustável conforme uso)
+                estaAprovado(60) ? "Sim" : "Não"
+        );
     }
 }

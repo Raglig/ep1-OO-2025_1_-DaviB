@@ -1,5 +1,10 @@
+package dominio;
 import java.util.ArrayList;
 import java.util.List;
+
+import avaliacao.TipoAvaliacao;
+import pessoas.Aluno;
+import pessoas.Professor;
 
 public class Turma {
     private Disciplina disciplina;
@@ -10,7 +15,7 @@ public class Turma {
     private String sala;
     private String horario;
     private int capacidadeMaxima;
-    private List<Aluno> alunosMatriculados;
+    private List<Matricula> matriculas = new ArrayList<>();
 
     public Turma(Disciplina disciplina, Professor professor,
                  String semestre, TipoAvaliacao tipoAvaliacao,
@@ -24,7 +29,6 @@ public class Turma {
         this.sala = sala;
         this.horario = horario;
         this.capacidadeMaxima = capacidadeMaxima;
-        this.alunosMatriculados = new ArrayList<>();
     }
 
     public Disciplina getDisciplina() {
@@ -51,22 +55,20 @@ public class Turma {
     public int getCapacidadeMaxima() {
         return capacidadeMaxima;
     }
-    public List<Aluno> getAlunosMatriculados() {
-        return alunosMatriculados;
+
+    public List<Matricula> getMatriculas() {
+        return new ArrayList<>(matriculas);
     }
 
-    public boolean matricularAluno(Aluno aluno) {
-        if (alunosMatriculados.size() >= capacidadeMaxima) {
-            return false;
-        }
-        // (aqui checar pré-requisitos antes de adicionar)
-        alunosMatriculados.add(aluno);
-        return true;
+    public int getTotalAulas() {
+        return disciplina.getCargaHoraria() / 4; // Exemplo: 60h = 15 aulas
     }
 
-    public void removerAluno(Aluno aluno) {
-        alunosMatriculados.remove(aluno);
-    }
+   public boolean matricularAluno(Aluno aluno) {
+    if (matriculas.size() >= capacidadeMaxima) return false;
+    matriculas.add(new Matricula(aluno, this));
+    return true;
+}
 
     @Override
     public String toString() {
@@ -76,4 +78,6 @@ public class Turma {
                professor.getNome() + " - " + modo + infoSala +
                " Horário: " + horario + " Capacidade: " + capacidadeMaxima;
     }
+
+    
 }

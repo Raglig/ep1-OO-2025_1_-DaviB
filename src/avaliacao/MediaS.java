@@ -1,3 +1,4 @@
+package avaliacao;
 public class MediaS implements TipoAvaliacao {  
     @Override
     public float calcularMedia(float[] notas) {
