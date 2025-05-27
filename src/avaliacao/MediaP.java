@@ -1,10 +1,17 @@
+package avaliacao;
+
 public class MediaP implements TipoAvaliacao {
     private float[] pesos;
 
     public MediaP(float[] pesos) {
-        this.pesos = pesos;
+        this.pesos = pesos.clone();
     }
 
+    public float[] getPesos() {
+    return pesos.clone();
+    }
+
+    
     @Override
     public float calcularMedia(float[] notas) {
         if (notas.length != pesos.length) {

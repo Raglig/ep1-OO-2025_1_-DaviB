@@ -6,14 +6,16 @@ public class Matricula {
     private Turma turma;
     private boolean trancada;
     private float[] notas; 
-    private int presencas;
+    private int faltas;
+    private boolean aprovado;
 
     public Matricula(Aluno aluno, Turma turma) {
         this.aluno = aluno;
         this.turma = turma;
         this.trancada = false;
         this.notas = new float[5];
-        this.presencas = 0;
+        this.faltas = 0;
+        this.aprovado = false;
     }
 
     public Aluno getAluno() {
@@ -37,6 +39,7 @@ public class Matricula {
             throw new IllegalArgumentException("Devem ser 5 notas: P1, P2, P3, L, S.");
         }
         this.notas = notas;
+        atualizarStatus();
     }
 
     public float[] getNotas() {
@@ -48,42 +51,45 @@ public class Matricula {
             throw new IndexOutOfBoundsException("Índice de nota inválido (0 a 4).");
         }
         this.notas[index] = valor;
+        atualizarStatus();
     }
 
-    public void setPresencas(int presencas) {
-        this.presencas = presencas;
+    public void adicionarFalta() {
+        this.faltas++;
+        atualizarStatus();
     }
 
-    public void adicionarPresenca() {
-        this.presencas++;
-    }
-
-    public int getPresencas() {
-        return presencas;
+    public int getFaltas() {
+        return faltas;
     }
 
     public float calcularMediaFinal() {
         return turma.getTipoAvaliacao().calcularMedia(notas);
     }
 
-    public float calcularFrequencia(int totalAulas) {
+    public float calcularFrequencia() {
+        int totalAulas = turma.getTotalAulas();
         if (totalAulas == 0) return 0;
+        int presencas = totalAulas - faltas;
         return (presencas / (float) totalAulas) * 100f;
     }
 
-    public boolean estaAprovado(int totalAulas) {
-        float media = calcularMediaFinal();
-        float freq = calcularFrequencia(totalAulas);
-        return media >= 5.0f && freq >= 75.0f;
+    public void atualizarStatus() {
+        this.aprovado = calcularMediaFinal() >= 5.0f && 
+                       calcularFrequencia() >= 75.0f;
+    }
+
+    public boolean estaAprovado() {
+        return aprovado;
     }
 
     @Override
     public String toString() {
-        return String.format("Aluno: %s | Média: %.2f | Frequência: %.1f%% | Aprovado: %s",
+        return String.format("Aluno: %s | Média: %.2f | Frequência: %.1f%% | Status: %s",
                 aluno.getNome(),
                 calcularMediaFinal(),
-                calcularFrequencia(60), // número de aulas padrão (ajustável conforme uso)
-                estaAprovado(60) ? "Sim" : "Não"
+                calcularFrequencia(),
+                estaAprovado() ? "Aprovado" : "Reprovado"
         );
     }
 }

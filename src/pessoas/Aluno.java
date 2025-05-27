@@ -27,8 +27,11 @@ public abstract class Aluno extends Pessoa {
 
     public void setCurso(String curso){
         this.curso=curso;
+    }   
+    
+    public void adicionarMatriculaAoHistorico(Matricula m) {
+        historico.add(m);
     }
-
 
     public boolean cumpriuPreRequisitos(Disciplina disciplina) {
         List<Disciplina> cursadas = historico.stream()

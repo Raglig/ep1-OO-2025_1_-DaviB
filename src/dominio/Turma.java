@@ -64,11 +64,16 @@ public class Turma {
         return disciplina.getCargaHoraria() / 4; // Exemplo: 60h = 15 aulas
     }
 
-   public boolean matricularAluno(Aluno aluno) {
+    public boolean matricularAluno(Aluno aluno) {
     if (matriculas.size() >= capacidadeMaxima) return false;
     matriculas.add(new Matricula(aluno, this));
     return true;
-}
+    }
+
+    public boolean temConflito(Turma outra) {
+        return this.semestre.equals(outra.semestre) && 
+        this.horario.equals(outra.horario);
+    }
 
     @Override
     public String toString() {

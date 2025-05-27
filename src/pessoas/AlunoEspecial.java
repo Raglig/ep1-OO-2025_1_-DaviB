@@ -11,7 +11,7 @@ public class AlunoEspecial extends Aluno{
         @Override
         public boolean podeMatricular(Disciplina disciplina){
             return super .getHistorico().stream()
-                .filter(m -> !m.isConcluida())
+                .filter(m -> !m.isTrancada())
                 .count() < 2;
         }    
     

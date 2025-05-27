@@ -9,26 +9,39 @@ O enunciado do trabalho pode ser encontrado aqui:
 
 ## Dados do Aluno
 
-- **Nome completo:** [Preencher aqui]
-- **Matrícula:** [Preencher aqui]
-- **Curso:** [Preencher aqui]
-- **Turma:** [Preencher aqui]
-
+- **Nome completo:** Davi Barbosa Alves
+- **Matrícula:** 241012131
+- **Curso:** Engenharias
+- **Turma:** 606
 ---
 
 ## Instruções para Compilação e Execução
 
 1. **Compilação:**  
-   [Descrever aqui como compilar o projeto. Exemplo: `javac Main.java` ou o script usado]
+   import sistema.Sistema;
+
+public class Main {
+    public static void main(String[] args) {
+        Sistema sistema = new Sistema();
+        sistema.iniciar();
+    }
+}
+
 
 2. **Execução:**  
    [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
 
 3. **Estrutura de Pastas:**  
-   [Descrever aqui as principais pastas do projeto]
+   dados(Alunos.csv, disciplina.csv, professores.csv, turmas.csv)
+   src{[avaliacao(MediaP, MediaS, TipoAvaliacao)], [dominio(Disciplina, Matricula, turma)],[pessoas(Aluno, AlunoEspecial, AlunoNormal, Pessoa, Professor)], [sistema(Sistema)], utils[(Arquivo)]
+   Main.java
+   aluno.cvs
+   disciplina.cvs
+   professor.cvs
+   turmas.cvs}
 
 3. **Versão do JAVA utilizada:**  
-   [Descrever aqui como versão do JAVA utilizada no projeto. Sugestão: `java 21`]
+   Java 17
 
 ---
 
@@ -41,36 +54,36 @@ O enunciado do trabalho pode ser encontrado aqui:
 ## Prints da Execução
 
 1. Menu Principal:  
-   ![Inserir Print 1](caminho/do/print1.png)
+   ![Inserir Print 1](C:\Users\davib\ep1-OO-2025_1_-DaviB\Prints)
 
 2. Cadastro de Aluno:  
-   ![Inserir Print 2](caminho/do/print2.png)
+   ![Inserir Print 2](C:\Users\davib\ep1-OO-2025_1_-DaviB\Prints)
 
 3. Relatório de Frequência/Notas:  
-   ![Inserir Print 3](caminho/do/print3.png)
+   ![Inserir Print 3](C:\Users\davib\ep1-OO-2025_1_-DaviB\Prints)
 
 ---
 
 ## Principais Funcionalidades Implementadas
 
-- [ ] Cadastro, listagem, matrícula e trancamento de alunos (Normais e Especiais)
-- [ ] Cadastro de disciplinas e criação de turmas (presenciais e remotas)
-- [ ] Matrícula de alunos em turmas, respeitando vagas e pré-requisitos
-- [ ] Lançamento de notas e controle de presença
-- [ ] Cálculo de média final e verificação de aprovação/reprovação
-- [ ] Relatórios de desempenho acadêmico por aluno, turma e disciplina
+- [X] Cadastro, listagem, matrícula e trancamento de alunos (Normais e Especiais)
+- [X] Cadastro de disciplinas e criação de turmas (presenciais e remotas)
+- [X] Matrícula de alunos em turmas, respeitando vagas e pré-requisitos
+- [X] Lançamento de notas e controle de presença
+- [X] Cálculo de média final e verificação de aprovação/reprovação
+- [X] Relatórios de desempenho acadêmico por aluno, turma e disciplina
 - [ ] Persistência de dados em arquivos (.txt ou .csv)
-- [ ] Tratamento de duplicidade de matrículas
-- [ ] Uso de herança, polimorfismo e encapsulamento
+- [X] Tratamento de duplicidade de matrículas
+- [X] Uso de herança, polimorfismo e encapsulamento
 
 ---
 
 ## Observações (Extras ou Dificuldades)
 
-- [Espaço para o aluno comentar qualquer funcionalidade extra que implementou, dificuldades enfrentadas, ou considerações importantes.]
+Tive muito problema com o Sistema.Java, no começo eu acjei que um arquivo seria o suficiente para fazer a parte visual porem as interações começaram a empilhar e eu me embolei todo com o arquivo
 
 ---
 
 ## Contato
 
-- [Opcional: E-mail pessoal do aluno.]
+- ddavi.barbosaalves02@gmail.com
