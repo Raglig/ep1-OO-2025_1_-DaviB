@@ -18,18 +18,11 @@ O enunciado do trabalho pode ser encontrado aqui:
 ## Instruções para Compilação e Execução
 
 1. **Compilação:**  
-   import sistema.Sistema;
-
-public class Main {
-    public static void main(String[] args) {
-        Sistema sistema = new Sistema();
-        sistema.iniciar();
-    }
-}
+   Compilado pelo VSC
 
 
 2. **Execução:**  
-   [Descrever aqui como executar o projeto. Exemplo: `java Main` ou o script usado]
+   Executado pelo executar do VSC
 
 3. **Estrutura de Pastas:**  
    dados(Alunos.csv, disciplina.csv, professores.csv, turmas.csv)
